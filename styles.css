@@ -1,43 +1,152 @@
+/* -------------------- Farben & Fonts -------------------- */
+:root {
+  --bg: #0d0d1a;
+  --card: #1a1a2e;
+  --accent: #ff5c57;
+  --accent-light: #ff7b72;
+  --text-main: #f0f0f0;
+  --text-muted: #aaa;
+  --radius-lg: 14px;
+  --radius-md: 8px;
+}
+
 body {
-  font-family: sans-serif;
-  background: #eee;
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 10px;
+  background: linear-gradient(135deg, #0d0d1a, #000);
+  color: var(--text-main);
 }
+
 .app {
-  max-width: 600px;
-  margin: auto;
-  background: #fff;
-  padding: 10px;
-  border-radius: 6px;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
 }
+
+/* -------------------- Header -------------------- */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.app-header h1 {
+  font-size: 1.8rem;
+  color: var(--accent);
+}
+
+#add-rig-btn {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#add-rig-btn:hover {
+  background: var(--accent-light);
+}
+
+/* -------------------- Rig Cards -------------------- */
 .rig-card {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 4px;
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: 15px;
+  margin-top: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
-button, input, select {
-  margin-top: 4px;
-  padding: 4px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  width: 100%;
-}
+
 .rig-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
 }
+
+.rig-total {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+input, select, textarea {
+  width: 100%;
+  margin-top: 5px;
+  padding: 6px 10px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: #111;
+  color: var(--text-main);
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* -------------------- Components -------------------- */
+.component {
+  background: #111;
+  padding: 8px;
+  margin-top: 8px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.component-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .component-fields {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  gap: 4px;
-  margin-top: 4px;
+  gap: 6px;
+  margin-top: 6px;
 }
-.component {
-  border: 1px solid #ccc;
-  padding: 4px;
-  margin-top: 4px;
-  border-radius: 4px;
+
+.remove-component {
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.remove-component:hover {
+  background: var(--accent-light);
+}
+
+/* -------------------- Buttons -------------------- */
+.add-component-btn {
+  border-radius: 999px;
+  border: 1px dashed rgba(170, 170, 170, 0.7);
+  background: transparent;
+  color: var(--text-main);
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.add-component-btn:hover {
+  border-style: solid;
+}
+
+/* -------------------- Responsive -------------------- */
+@media (max-width: 600px) {
+  .rig-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .component-fields {
+    grid-template-columns: 1fr;
+  }
 }
